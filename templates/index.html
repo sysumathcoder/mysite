@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>首页</title>
+</head>
+<body>
+    <form action="/index/" method="post">
+        {% csrf_token %}
+        <input type="submit" value="StockPrice" />
+    </form>
+
+    <h1>StockInfo：</h1>
+    <table border="1">
+        <thead>
+            <th>StockName</th>
+            <th>CurrentPrice</th>
+            <th>CurrentChange</th>
+            <th>Date</th>
+        </thead>
+        <tbody>
+            {% for line in data %}
+            <tr>
+                <td>{{ line.name }}</td>
+                <td>{{ line.price }}</td>
+                <td>{{ line.change }}</td>
+                <td>{{ line.time }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</body>
+</html>
