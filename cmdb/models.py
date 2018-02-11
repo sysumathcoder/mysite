@@ -8,5 +8,5 @@ class UserInfo(models.Model):
     price = models.CharField(max_length=32)
     change = models.CharField(max_length=32)
     time = models.CharField(max_length=32)
-
+    curTime = models.CharField(max_length=32)
 

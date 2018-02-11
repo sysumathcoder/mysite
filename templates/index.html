@@ -17,6 +17,7 @@
             <th>CurrentPrice</th>
             <th>CurrentChange</th>
             <th>Date</th>
+            <th>CurTime</th>
         </thead>
         <tbody>
             {% for line in data %}
@@ -25,6 +26,7 @@
                 <td>{{ line.price }}</td>
                 <td>{{ line.change }}</td>
                 <td>{{ line.time }}</td>
+                <td>{{ line.curTime }}</td>
             </tr>
             {% endfor %}
         </tbody>

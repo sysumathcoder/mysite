@@ -1,7 +1,7 @@
 from django.shortcuts import render
 from cmdb import models
 # Create your views here.
-
+import datetime
 from urllib.request import Request, urlopen
 from bs4 import BeautifulSoup
 
@@ -40,6 +40,6 @@ def index(request):
         models.UserInfo.objects.all().delete()
         stockInfos = getStockList(getHTMLText(slist))
         for info in stockInfos:
-            models.UserInfo.objects.create(name=info[0], price=info[1], change=info[2], time=info[3])
+            models.UserInfo.objects.create(name=info[0], price=info[1], change=info[2], time=info[3], curTime =datetime.datetime.now())
     stock_list = models.UserInfo.objects.all()
     return render(request, "index.html", {"data": stock_list})
